@@ -1,0 +1,5 @@
+安装虚拟机Linux系统
+1.环境变量 
+	添加 C:/Windows
+2.注册码
+	5A02H-AU243-TZJ49-GTC7K-3C61N

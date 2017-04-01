@@ -1,0 +1,153 @@
+﻿Git 笔记
+
+①安装完成后第一步
+	$ git config --global user.name "xuetu"
+	#设置用户名
+	$ git config --global user.email "gexingfeng0606@163.com"
+	#设置邮箱地址
+	#注意git config命令的--global参数,用了这个参数,表示你这台机器上所有的Git仓库都会使用这个配置,当然也可以对某个仓库指定不同的用户名和Email地址.
+②创建版本库
+	$ mkdir 文件夹名
+	#创建空白文件夹
+	$ cd learngit
+	#打开当前目录下的指定文件夹
+	$pwd
+	#查看当前文件夹的位置
+	$ git init 
+	#创建版本库,生成.git文件夹
+	$ ls -ah
+	#查看隐藏的文件夹
+③使用版本库
+	$ vim 文件名.后缀
+	#创建一个文件/打开一个文件
+	i 
+	#插入文本内容
+	wq 
+	#保存并退出
+	$ git add 文件名1.后缀 文件名2.后缀 ···
+	#添加文件到仓库
+		#windows中的换行符为 CRLF， 而在Linux下的换行符为LF，所以在执行add . 时出现提示，解决办法:
+		$ rm -rf .git
+		#删除.git
+		$ git config --global core.autocrlf false
+		#禁止自动转换
+		$ git init 
+		$ git add 
+	$ git commit -m "注释,可以是中文"
+	#将文件提交到仓库
+	#简单解释一下git commit命令,-m后面输入的是本次提交的说明,可以输入任意内容,当然最好是有意义的,这样你就能从历史记录里方便地找到改动记录
+	
+	$ git status
+	#git status命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改
+	
+	$ git diff
+	#查看文件具体修改了什么内容
+	
+	$ cat 文件名.后缀
+	#查看当前文件具体内容
+	
+	$ git log [--pretty=oneline]
+	#查看文件修改的历史记录
+	
+	$ git reset --hard HEAD^
+	#回退到上一个版本,几个^代表上几个版本
+	
+	$ git reset --hard commit_id
+	#指定某个id的版本回退
+	
+	$ git reflog
+	#查看之前的命令
+	
+	$ git checkout -- 文件名.后缀
+	#让文件回到最近的一次提交或修改时状态,删除工作区的修改
+	
+	$ git reset HEAD 文件名.后缀
+	#可以把暂存区的修改撤销掉,重新放回到工作区
+	
+	$rm 文件名.后缀
+	#删除文件
+	
+	$ git rm 
+	#彻底从版本库删除
+	
+	$ git --help
+	#Git的帮助
+	
+	$ ssh-keygen -t rsa -C "gexingfeng0606@163"
+	#一路回车即可生成.ssh目录，里面有id_rsa和id_rsa.pub两个文件
+	#从GitHub上添加id_rsa.pub文件里的Key
+	
+	$ ssh -T git@github.com 
+	#在本地上
+④下载/提交文件到版本库服务器中
+	$ git add 文件名.后缀
+	#添加文件到暂停区
+	
+	$ git commit -m "注释"
+	#提交文件
+	
+	$ git remote add 标题 网址
+	#设置要提交的文件的网址
+	
+	$ git push 
+	#提交文件到该网址
+	
+	账号
+	密码
+	提交成功
+		
+⑤加载远程仓库
+	$ git remote add origin git@59.110.60.236:/home/git/pc_lgzx.git
+	#配置公司的版本库
+	$ git clone git@59.110.60.236:/home/git/pc_lgzx.git
+	#下载公司版本库
+
+	$ git remote add test git@github.com:xuetu0606/CI.git
+	#配置连接自己的版本库
+	$ git clone git@github.com:xuetu0606/CI.git
+	#下载自己的版本库
+	
+	$ git remote add 仓库名称 项目地址
+	#配置远程仓库
+	
+	$ git push -u 仓库名称 master
+	#将本地库里的所有内容都推送到远程库上
+	
+	$ git remote
+	#查看远端主机名列表
+	
+	$ git remote add 主机名 网址
+	#命令用于添加远程主机
+	
+	$ git remote rm 主机名
+	#删除远程主机
+	
+	$ git remote rename 原主机名 新主机名
+	#修改远程主机名
+	
+	$ git fetch 远程主机名
+	#将某个远程主机的更新，全部取回本地
+	
+	$ git fetch 远程主机名 分支名
+	#如果只想取回特定分支的更新，可以指定分支名
+	
+	$ git branch -r
+	#可以用来查看远程分支
+	
+	$ git branch -a
+	#-a选项查看所有分支
+	
+	$ git checkout -b newBrach 主机名/分支名
+	#在 主机名/分支名 的基础之上创建一个新分支
+	
+	$ git merge
+	#在本地分支上合并远程分支
+	
+	$ git rebase
+	#合并远程分支
+	
+	$ git pull 远程主机名 远程分支名:本地分支名
+	#取回远程主机某个分支的更新，再与本地的指定分支合并,如果远程分支是与当前分支合并，则冒号后面的部分可以省略
+	#上面命令表示，取回master/master分支，再与当前分支合并。实质上，这等同于先做git fetch，再做git merge
+	
+	#先切换,再合并

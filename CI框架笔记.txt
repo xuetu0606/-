@@ -1,0 +1,135 @@
+﻿license.txt文件 : 许可文件
+application文件夹 : 项目
+system文件夹 : 框架
+index.php文件 : 入口文件
+user_guide文件夹 : 用户手册
+	MVC
+1.入口文件index()是唯一一个让浏览器直接请求的脚本文件
+2.控制器是协调模型和视图
+3.模型只负责提供数据,保存数据,包括数据有效性验证
+4.视图只负责显示数据,及收集数据
+5.方法action是控制器中的方法,用于浏览器请求
+	CI框架基本应用
+访问方法(pathinfo)
+域名/项目名/入口文件.php/控制器/方法名
+application 应用目录
+    controllers 控制器
+    models      模型
+    views       视图
+默认控制器是welcome
+默认方法是index方法
+	①控制器
+不需要加控制器后缀XXXController
+文件名全部要小写
+所有控制器要直接或间接继承自CI_Controller类
+在控制器中只有public的方法才能被浏览器访问
+在控制其中以_开头的方法不能被浏览器访问
+	②视图
+在控制器中加载视图$this->load->view(视图名);
+可以多次调用$this->load->view(视图名);用于视图的布局
+视图中直接使用PHP原生代码
+推荐使用
+<?php foreach($array as $item):?>
+<?php endforeach; ?>
+	③超级对象
+当前控制器对象
+属性:
+    $this->load    加载器类的实例(system/code/Loader.php)
+        会提供以下方法:
+            view();      装载视图
+            vars();      分配变量到视图
+            database();  装载数据库操作对象
+            model();     装载模型对象
+            helper();    加载帮助文件
+    $this->uri     是CI_URI的实例化(system/code/URI.php)
+        会提供以下方法:
+	    segment();   用户获取URL中某个的值(入口文件.php/控制器/方法名/参数1/···)
+    $this->input   是CI_Input的实例化(system/code/Input.php)
+        会提供以下方法:
+	    post();      获取$_POST的变量
+	    server();    获取$_SERVER的指定数据
+视图当中也可以使用超级对象
+	④数据库访问
+修改配置文件
+application/config/database.php
+将数据库访问对象加载到超级对象的属性中
+$this->load->database();
+
+$res = $this->db->query($sql);//返回对象
+$res->result();//返回数组,多个用户对象
+$res->result();//返回二维数组,多个数据数组
+$res->row();//返回第一条
+数据库访问对象自动加载
+application/config/autoload.php
+$autoload['libraries'] = array('database');
+单个参数可以直接传入,多个参数的时候需要使用索引数组
+表前缀只要配置database的属性就好
+$db['swap_pre'] = '';
+$db['dbprefix'] = '';
+启用AR模型
+application/config/database.php
+$active_record = TRUE;
+	⑤扩展CI控制器
+application/code/My_Controller.php
+以后的控制器就要继承My_Conlltroller.php
+扩展控制器前缀修改
+application/config/config.php
+$config['subclass_prefix'] = 'My_';
+	⑥模型
+继承自CI_Model
+在模型中可以直接使用超级对象中的属性
+文件名全小写,类名首字母大写
+建议使用_Model作为后缀,防止与控制器类名冲突
+	⑦url相关函数
+项目基础目录
+提前加载URL类
+$this->load->helper('url');
+自动加载
+application/config/autoload.php
+$autoload['helper'] = array('url');
+site_url('控制器/方法');//控制器目录
+base_url();//网站根目录
+	⑧设置路由
+application/config/routes.php
+默认控制器
+$routes['default_controller'] = 'Welcome';
+设置自定义路由转发至特定的控制器方法
+$route['正则表达式'] = '控制器/方法/变量';
+隐藏入口文件
+在httpd.conf文件中开启Apache的rewrite模块
+LoadModule rewrite_module modules/mod_rewrite.so
+在入口文件同级目录中放入一个.htaccess文件
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FLLENAME} !-d
+    RewriteCond %{REQUEST_FLLENAME} !-f
+    RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+隐藏入口文件
+$config['index_page'] = '';
+显示入口文件
+$config['index_page'] = 'index.php';
+	⑨分页
+加载分页类
+$this->load->library('pagination');
+代码:user/branch
+	⑩文件上传
+手动创建好上传目录
+代码:user/upload
+	⑪Session
+加载Session类库
+$this->load->library('session');
+CI中的Session是借用了浏览器的Cookie来储存的
+需要修改config文件的
+$config['encryption_key'] = '';
+用来加密,使用
+echo md5(uniqid());exit;
+生成一个随机不重复的字符串添加进去
+Cookie加密
+$config['sess_encrypt_cookie'] = TRUE;
+	⑫验证码
+加载辅助函数
+$this->load->helper('captcha');
+	⑬表单验证
+表单验证错误信息
+$config['language'] = 'zh_cn';

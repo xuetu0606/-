@@ -1,0 +1,75 @@
+textarea 固定宽高
+CSS设置
+resize: none;
+textarea 设置圆角
+CSS设置
+border-radius: 15px;
+textarea 自动适应高度
+overflow:visible ;
+自动刷新页面
+location.reload();
+函数：substring() 
+功能：字符串截取，比如想从"MinidxSearchEngine”中得到"Minidx”就要用到substring(0,6) 
+
+php:
+正则表达式判断
+preg_match('正则','字符串');
+启动Session
+session_start();
+使用Session
+$_SESSION['key'] = value;
+对象转JSON
+json_encode	对变量进行 JSON 编码
+json_decode	对 JSON 格式的字符串进行解码，转换为 PHP 变量
+json_last_error	返回最后发生的错误
+邮箱正则
+
+required:/\S+/,
+phone:/^1[34578]\d{9}$/,
+email:/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+idcard:/(^\d{15}$)|(^\d{17}(\d|X|x)$)/}
+
+JS:
+JSON
+var obj = str.parseJSON();
+var obj = eval('(' + str + ')');
+
+
+DROP TABLE IF EXISTS `user_message_log2`;
+CREATE TABLE `user_message_log2` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(90) DEFAULT NULL COMMENT '标题',
+  `message` text COMMENT '内容',
+  `addtime` int(10) DEFAULT NULL COMMENT '添加时间',
+  `flag` int(1) DEFAULT '0' COMMENT '消息状态标识：-1删除 、0未读 、 1已读',
+  `updatetime` int(10) DEFAULT NULL,
+  `type` int(1) DEFAULT '1' COMMENT '分类标识：1普通个人用户、2签约个人用户、3公司用户、4代理商、',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+一天的毫秒数 
+1*24*60*60*1000
+
+数据库当前系统时间
+current_时间类型
+
+
+PHP 时间戳
+date('Y-m-d H:i:s', 1156219870);
+
+
+
+分页样式
+section div.fenye a {
+  width: 60px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  color: #333;
+  font-size: 16px;
+  margin: 0 5px;
+  background-color: #ffffff;
+  font-weight: bold;
+  border: solid 1px #cccccc;
+}
