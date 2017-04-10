@@ -1,28 +1,28 @@
-textarea ¹Ì¶¨¿í¸ß
-CSSÉèÖÃ
+textarea å›ºå®šå®½é«˜
+CSSè®¾ç½®
 resize: none;
-textarea ÉèÖÃÔ²½Ç
-CSSÉèÖÃ
+textarea è®¾ç½®åœ†è§’
+CSSè®¾ç½®
 border-radius: 15px;
-textarea ×Ô¶¯ÊÊÓ¦¸ß¶È
+textarea è‡ªåŠ¨é€‚åº”é«˜åº¦
 overflow:visible ;
-×Ô¶¯Ë¢ĞÂÒ³Ãæ
+è‡ªåŠ¨åˆ·æ–°é¡µé¢
 location.reload();
-º¯Êı£ºsubstring() 
-¹¦ÄÜ£º×Ö·û´®½ØÈ¡£¬±ÈÈçÏë´Ó"MinidxSearchEngine¡±ÖĞµÃµ½"Minidx¡±¾ÍÒªÓÃµ½substring(0,6) 
+å‡½æ•°ï¼šsubstring() 
+åŠŸèƒ½ï¼šå­—ç¬¦ä¸²æˆªå–ï¼Œæ¯”å¦‚æƒ³ä»"MinidxSearchEngineâ€ä¸­å¾—åˆ°"Minidxâ€å°±è¦ç”¨åˆ°substring(0,6) 
 
 php:
-ÕıÔò±í´ïÊ½ÅĞ¶Ï
-preg_match('ÕıÔò','×Ö·û´®');
-Æô¶¯Session
+æ­£åˆ™è¡¨è¾¾å¼åˆ¤æ–­
+preg_match('æ­£åˆ™','å­—ç¬¦ä¸²');
+å¯åŠ¨Session
 session_start();
-Ê¹ÓÃSession
+ä½¿ç”¨Session
 $_SESSION['key'] = value;
-¶ÔÏó×ªJSON
-json_encode	¶Ô±äÁ¿½øĞĞ JSON ±àÂë
-json_decode	¶Ô JSON ¸ñÊ½µÄ×Ö·û´®½øĞĞ½âÂë£¬×ª»»Îª PHP ±äÁ¿
-json_last_error	·µ»Ø×îºó·¢ÉúµÄ´íÎó
-ÓÊÏäÕıÔò
+å¯¹è±¡è½¬JSON
+json_encode	å¯¹å˜é‡è¿›è¡Œ JSON ç¼–ç 
+json_decode	å¯¹ JSON æ ¼å¼çš„å­—ç¬¦ä¸²è¿›è¡Œè§£ç ï¼Œè½¬æ¢ä¸º PHP å˜é‡
+json_last_error	è¿”å›æœ€åå‘ç”Ÿçš„é”™è¯¯
+é‚®ç®±æ­£åˆ™
 
 required:/\S+/,
 phone:/^1[34578]\d{9}$/,
@@ -38,29 +38,29 @@ var obj = eval('(' + str + ')');
 DROP TABLE IF EXISTS `user_message_log2`;
 CREATE TABLE `user_message_log2` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `title` varchar(90) DEFAULT NULL COMMENT '±êÌâ',
-  `message` text COMMENT 'ÄÚÈİ',
-  `addtime` int(10) DEFAULT NULL COMMENT 'Ìí¼ÓÊ±¼ä',
-  `flag` int(1) DEFAULT '0' COMMENT 'ÏûÏ¢×´Ì¬±êÊ¶£º-1É¾³ı ¡¢0Î´¶Á ¡¢ 1ÒÑ¶Á',
+  `title` varchar(90) DEFAULT NULL COMMENT 'æ ‡é¢˜',
+  `message` text COMMENT 'å†…å®¹',
+  `addtime` int(10) DEFAULT NULL COMMENT 'æ·»åŠ æ—¶é—´',
+  `flag` int(1) DEFAULT '0' COMMENT 'æ¶ˆæ¯çŠ¶æ€æ ‡è¯†ï¼š-1åˆ é™¤ ã€0æœªè¯» ã€ 1å·²è¯»',
   `updatetime` int(10) DEFAULT NULL,
-  `type` int(1) DEFAULT '1' COMMENT '·ÖÀà±êÊ¶£º1ÆÕÍ¨¸öÈËÓÃ»§¡¢2Ç©Ô¼¸öÈËÓÃ»§¡¢3¹«Ë¾ÓÃ»§¡¢4´úÀíÉÌ¡¢',
+  `type` int(1) DEFAULT '1' COMMENT 'åˆ†ç±»æ ‡è¯†ï¼š1æ™®é€šä¸ªäººç”¨æˆ·ã€2ç­¾çº¦ä¸ªäººç”¨æˆ·ã€3å…¬å¸ç”¨æˆ·ã€4ä»£ç†å•†ã€',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
-Ò»ÌìµÄºÁÃëÊı 
+ä¸€å¤©çš„æ¯«ç§’æ•° 
 1*24*60*60*1000
 
-Êı¾İ¿âµ±Ç°ÏµÍ³Ê±¼ä
-current_Ê±¼äÀàĞÍ
+æ•°æ®åº“å½“å‰ç³»ç»Ÿæ—¶é—´
+current_æ—¶é—´ç±»å‹
 
 
-PHP Ê±¼ä´Á
+PHP æ—¶é—´æˆ³
 date('Y-m-d H:i:s', 1156219870);
 
 
 
-·ÖÒ³ÑùÊ½
+åˆ†é¡µæ ·å¼
 section div.fenye a {
   width: 60px;
   height: 35px;
@@ -73,3 +73,6 @@ section div.fenye a {
   font-weight: bold;
   border: solid 1px #cccccc;
 }
+
+PHPç¼–ç è®¾ç½®
+header("Content-Type:text/html; charset=utf-8");
