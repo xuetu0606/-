@@ -76,3 +76,6 @@ section div.fenye a {
 
 PHP编码设置
 header("Content-Type:text/html; charset=utf-8");
+
+PHP代码打开alert
+echo "<script>alert('很抱歉,注册失败,请重新注册!');location.href='".U('Index/reg')."';</script>";
