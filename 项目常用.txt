@@ -82,3 +82,8 @@ echo "<script>alert('很抱歉,注册失败,请重新注册!');location.href='".
 
 隐藏域
 <input type="hidden" name="field＿name" value="value"> 
+PHP 
+数组排序
+sort($array);
+将数组直接合并成字符串
+implode($array);
