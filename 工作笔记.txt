@@ -1,0 +1,261 @@
+
+工号  公司/个人  昵称/公司名称  工种 会员/普通  注册/推广 注册时间 充值时间 套餐期限  电话
+select 
+uid,用户ID
+job_type.name,工种名称
+userlist.no,用户工号
+is_co,公司/个人
+name,公司或个人的名称
+referrer,注册/推广
+addtime,注册时间
+mobile,电话
+starttime as vip_starttime,注册时间
+endtime as vip_endtime套餐的最后期限
+from
+userlist,第一层数据表
+job_type,工种表
+user_service_log会员信息
+条件
+城市
+是否会员
+个人/公司
+
+
+默认查询
+select 
+l.uid as uid,
+l.no as no,
+l.is_co as is_co,
+l.referrer as referrer,
+l.addtime as addtime,
+l.mobile as mobile,
+s.starttime as start,
+s.endtime as end
+from
+userlist l,
+user_service_log s
+where 
+l.city_id=224
+
+按照是否是公司来查询
+select 
+l.uid as uid,
+l.no as no,
+l.is_co as is_co,
+l.referrer as referrer,
+l.addtime as addtime,
+l.mobile as mobile,
+s.starttime as start,
+s.endtime as end
+from
+userlist l,
+user_service_log s
+where 
+l.city_id=224
+and
+l.is_co=1
+
+
+select 
+l.uid as uid, 
+l.no as no, 
+l.is_co as is_co, 
+l.referrer as referrer, 
+l.addtime as addtime, 
+l.mobile as mobile, 
+s.starttime as start, 
+s.endtime as end 
+from userlist l, 
+user_service_log s 
+where city_id=224 
+and 
+addtime>1483228800000 
+and 
+addtime<1490918400000;
+
+
+时间
+全局变量保存
+方法使用全局变量的值
+现在只有5个条件,第一个是空
+
+
+
+
+18:21:44
+杨博麟 2017/3/1 18:21:44
+lgftp1 I^h(eh45#5458ds6H
+
+杨博麟 2017/3/1 18:21:50
+123.56.201.60
+
+杨博麟 2017/3/1 18:21:58
+/wap_lgzx
+
+不在电脑前？没关系，QQ手机版让你随时随地接收消息！立刻安装
+
+杨博麟 2017/3/1 18:23:49
+http://qd-m.lg-zx.com/daili/hytj
+18:27:43
+杨博麟 2017/3/1 18:27:43
+账户qingdao 密码123123
+
+HTML5+CSS3视频教程：http://pan.baidu.com/s/1hsyOjze   密码：c3uw 
+JavaScript视频教程：链接：http://pan.baidu.com/s/1hsdj2zM   密码：b54i 
+BootStrap视频教程：链接：http://pan.baidu.com/s/1qYOWqL2   密码：2pde 
+PHP视频教程：链接：http://pan.baidu.com/s/1pKE8Fsn   密码：ipim  
+Smarty模板引擎：链接：http://pan.baidu.com/s/1dFHliLj  密码：hjq6
+JQuery视频教程：链接：http://pan.baidu.com/s/1qXHo3lq   密码：vfxx 
+
+AngularJS视频教程  链接：http://pan.baidu.com/s/1i4Mm0Ot   密码：98oi
+Mysql视频教程：链接：http://pan.baidu.com/s/1hsyOj2W   密码：fcfh 
+Linux视频教程：链接：http://pan.baidu.com/s/1miexpVy   密码：8ids 
+ThinkPHP框架链接：http://pan.baidu.com/s/1kV2LLLt   密码：jrpj 
+DedeCMS织梦视频教程  链接：http://pan.baidu.com/s/1i5FHeqL   密码：sti4 
+PS视频教程  http://pan.baidu.com/s/1bTRXUm  
+WP  链接：http://pan.baidu.com/s/1hr8b2U4  密码：p8cb
+mongodb视频教程 链接：http://pan.baidu.com/s/1hsyiqX I 密码：aiy7
+oracle : 链接：http://pan.baidu.com/s/1o7GCIee  密码：oxon
+Nginx: 链接：http://pan.baidu.com/s/1o8lKNXo  密码：szpb
+
+http://www.dlimama.com/zt/index.php?uid=1474
+
+
+select 
+l.uid as uid, 
+l.no as no, 
+l.is_co as is_co, 
+l.referrer as referrer, 
+l.addtime as addtime, 
+l.mobile as mobile, 
+s.starttime as start, 
+s.endtime as end 
+from 
+userlist l, 
+user_service_log s 
+where 
+l.uid=s.uid
+and
+l.city_id=224
+
+
+select 
+l.uid as uid, 
+l.no as no, 
+l.is_co as is_co, 
+l.referrer as referrer, 
+l.addtime as addtime, 
+l.mobile as mobile, 
+s.starttime as start, 
+s.endtime as end 
+from 
+userlist l 
+LEFT OUTER Join 
+user_service_log s 
+ON 
+l.uid=s.uid 
+where 
+l.city_id=224
+limit 0,15
+
+问题表#1
+
+给定一组正整数n( > 1 ) ,你应该把它们分成两个不相交的集合a 1和a2的n1和N2。让S1和S2分别表示a1和a2中所有数的总和。你应该使分区,使|n1 - N2是首先最小化,然后| S1 |最大化。
+
+输入规范:
+每个输入文件包含一个测试用例。对于每个情况,第一行给出一个整数n( 2 < = n < = 10 ) ,然后n个正整数在下一行,由空格分隔。保证所有整数及其之和小于2。
+
+输出规范:
+对于每个情况,打印在一个线的两个数字:| n1 - N2和| S1 | ,分开了一个空间。
+
+输入1:
+10
+23 2333 555 555 555
+样本输出1:
+3611 a
+
+样本输入2:
+13
+110个3721个5188个5188
+样本输出2:
+9359 a
+
+
+
+问题陈述#2
+
+您要编写一个程序,列出包含整数和单词的字符串列表,并返回列表的排序版本。
+
+目标是对列表进行排序,使所有单词都按字母顺序排列,所有整数都以数字顺序排列。此外,如果列表中的n个元素是一个整数,它必须保持一个整数,如果它是一个单词,它必须保持一个单词。
+
+输入规范:
+输入将包含一个可能为空的行,其中包含要排序的空间分隔的字符串列表。单词不包含空格,只包含小写字母a- z的整数将位于范围- 999999到999999 ,包括999999。线路最多将为1000个字符。
+
+输出规范:
+程序必须输出字符串列表,根据上面的要求排序。字符串必须由单个空格分隔,在线的开头处没有前导空格,或在线末尾的尾随空格。
+
+输入1:
+1
+样本输出1:
+1
+
+样本输入2:
+汽车卡车
+样本输出2:
+客车卡车
+
+示例输入3:
+8 - 2 49
+示例输出3:
+- 2 . 4
+
+示例输入4:
+卡车8总线6
+示例输出4:
+客车1车6
+
+
+删除
+点击复选框
+获取被点击的复选框
+获取被点击复选框的消息ID
+点击提交按钮
+控制器获取
+删除
+
+create table news (
+id varchar(36) primary key COMMENT '主键id',
+uid int unsigned COMMENT '用户ID',
+title varchar(60) COMMENT '消息标题',
+body varchar(120) COMMENT '消息内容',
+send_time timestamp default current_timestamp() COMMENT '消息创建时间',
+status tinyint default 1 COMMENT '是否被查看,未被查看是1,被查看是2',
+genre tinyint default 1 COMMENT '是否被收藏,未被收藏是1,收藏是2',
+type tinyint COMMENT '消息的类型,是公告为1,是活动为2',
+notes varchar(120) COMMENT '消息的前部分信息'
+);
+insert into news value ('758ed690a5c806c2f75bc02afd6bc395',1,'测试标题','消息头消息体消息尾',current_time(),1,1,1,'消息头');
+
+
+先查询出来
+北京/上海/天津/重庆
+作为省级
+下级直接为其本身
+
+先查询所有的省
+然后根据省查询所有的市
+
+create table daili_application(
+id varchar(36) primary key COMMENT '主键id',
+province int COMMENT '省ID',
+city int COMMENT '市ID',
+name varchar(36) COMMENT '公司名称',
+contact varchar(36) COMMENT '公司联系人',
+phone varchar(36) COMMENT '公司联系电话',
+mailbox varchar(36) COMMENT '公司邮箱',
+address varchar(36) COMMENT '公司地址',
+profession varchar(36) COMMENT '公司主营业务'
+);
+
+insert into 
+echo "insert into news value ('".md5(rand(1,10000))."',1,'测试标题','消息头消息体消息尾',current_timestamp(),".rand(1,2).",".rand(1,2).",".rand(1,2).",'消息头');".'<br/>';
