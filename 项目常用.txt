@@ -87,3 +87,17 @@ PHP
 sort($array);
 将数组直接合并成字符串
 implode($array);
+
+
+	/**
+	 * 框架自适应高度宽度
+	 */
+	function iFrameHeight() {   
+		var ifm= document.getElementById("iframepage");   
+		var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;   
+		if(ifm != null && subWeb != null) {
+		   ifm.height = subWeb.body.scrollHeight*1.5;
+		   ifm.width = subWeb.body.scrollWidth;
+		}
+	}
+
