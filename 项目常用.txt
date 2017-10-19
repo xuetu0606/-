@@ -100,4 +100,7 @@ implode($array);
 		   ifm.width = subWeb.body.scrollWidth;
 		}
 	}
-
+删除字符串下标数组元素
+delete query[obj.name];
+删除一个只知道名字不知道下标的元素
+index.splice($.inArray(obj.name, index),1);
